@@ -304,11 +304,11 @@ h4 {
 }
 
 .works .projects a:hover {
-	opacity: 0.6;
-	-webkit-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	transition: all .2s linear;
+	opacity: 0.4;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in;
 }
 
 .works .projects img {
@@ -995,7 +995,7 @@ body.lab {
 	}
 	
 	.work .screenshots iframe {
-		width: 100%!mportant;
+		width: 100%!important;
 		text-align: center;
 		margin: 0 auto;
 	}
