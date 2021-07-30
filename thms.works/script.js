@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 	$('body').delay(500);
-	$('body').fadeIn(1500);
+	$('body').fadeIn(1000);
 	
 	
 
@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$('a.transition').click(function(event) {
 	  event.preventDefault();
 	  newLocation = this.href;
-	  $('body').fadeOut(500, newpage);
+	  $('body').fadeOut(350, newpage);
 	});
 	
 	$("img.lazy").lazyload({
