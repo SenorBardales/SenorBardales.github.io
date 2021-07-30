@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
-	$('body').delay(500);
-	$('body').fadeIn(1000);
+	$('body').delay(1000);
+	$('body').fadeIn(1500);
 	
+	
+
 	window.onblur = function () { document.title = 'I miss you 💞'; }
 	window.onfocus = function () { document.title = 'Daniel Bardales Chavez'; }
 	
@@ -14,7 +16,7 @@ $(document).ready(function() {
 	$('a.transition').click(function(event) {
 	  event.preventDefault();
 	  newLocation = this.href;
-	  $('body').fadeOut(350, newpage);
+	  $('body').fadeOut(500, newpage);
 	});
 	
 	$("img.lazy").lazyload({
