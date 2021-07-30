@@ -3,8 +3,6 @@ $(document).ready(function() {
 	$('body').delay(500);
 	$('body').fadeIn(1000);
 	
-	
-
 	window.onblur = function () { document.title = 'I miss you 💞'; }
 	window.onfocus = function () { document.title = 'Daniel Bardales Chavez'; }
 	
