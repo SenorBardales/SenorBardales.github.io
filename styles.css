@@ -68,7 +68,7 @@ body {
 	font-family: "HelveticaNowDisplay-Light", sans-serif;
 	text-rendering: optimizeLegibility;
 	-moz-osx-font-smoothing: grayscale;
-	font-smoothing: antialiased;
+	font-smooth: auto;
 	-webkit-font-smoothing : antialiased;
 	display: none;
 	background: #000;
@@ -114,6 +114,7 @@ a {
     cursor: url("img/pointer.svg") 0 0, pointer!important; /* FF */
     cursor: -webkit-image-set(url("img/pointer.png") 1x, url("img/pointer%402x.png") 2x) 0 0, pointer!important; /* Webkit */
 }
+
 
 hr {
 	border: none;
