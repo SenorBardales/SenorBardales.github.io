@@ -92,6 +92,10 @@ body {
     padding: 0;
 }
 
+#changingword {
+    color:#862121;
+  }
+
 
 /* ------------------------------------------------------------------- 
  * ## links - (_document-setup.scss) 

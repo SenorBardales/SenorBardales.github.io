@@ -44,7 +44,27 @@
         });
     };
 
+    var app = document.getElementById('changingword');
 
+    var typewriter = new Typewriter(app, {
+        loop: true
+    });
+    
+    typewriter.typeString('filmmaker.')
+        .pauseFor(1500)
+        .deleteAll()
+        .typeString('web developer.')
+        .pauseFor(1500)
+        .deleteChars(14)
+        .typeString('graphic & UI/UX designer.')
+        .pauseFor(1500)
+        .deleteAll()
+        .typeString('video editor.')
+        .pauseFor(2500)
+        .deleteAll()
+        .start();
+    
+    
     /* pretty print
      * -------------------------------------------------- */
     var ssPrettyPrint = function() {
