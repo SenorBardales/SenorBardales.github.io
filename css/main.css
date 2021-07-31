@@ -92,10 +92,18 @@ body {
     padding: 0;
 }
 
-#changingword {
+.txt-type {
     color:#862121;
-  }
+}
 
+.txt-type > .txt {
+    border-right: 0.2rem solid rgb(255, 255, 255);
+    animation: blinker 1s infinite;
+}
+
+@keyframes blinker{
+    50%{border-color: transparent;}
+}
 
 /* ------------------------------------------------------------------- 
  * ## links - (_document-setup.scss) 
@@ -1514,8 +1522,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 .header-logo {
     display: inline-block;
     position: absolute;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 5px;
     left: 50px;
     top: 50%;
     -webkit-transform: translateY(-50%);

@@ -19,6 +19,9 @@
     var doc = document.documentElement;
     doc.setAttribute('data-useragent', navigator.userAgent);
 
+    window.onblur = function () { document.title = 'Come back :('; }
+	window.onfocus = function () { document.title = 'DBC'; }
+
 
     /* Preloader
      * -------------------------------------------------- */
@@ -44,52 +47,76 @@
         });
     };
 
-    let intro = document.querySelector('.intro');
-    let logo = document.querySelector('.logo-header');
-    let logoSpan = document.querySelector('.logo');
-
-    window.addEventListener('DOMContentLoaded', ()=>{
-        setTimeout(()=>{
-            logoSpan.forEach((span, idx)=>{
-                setTimeout(()=>{
-                    span.classList.add('active');
-                },(idx + 1) * 400)
-            });
-            setTimeout(()=>{
-                logoSpan.forEach((span, idx)=>{
-                    setTimeout(()=>{
-                        span.classList.remove('active');
-                        span.classList.add('fade');
-                    }, (idx + 1) * 50)
-                })
-            },2000);
-            setTimeout(()=>{
-                intro.style.top = '-100vh';
-            },2300)
-        })
-    })
-
-    var app = document.getElementById('changingword');
-
-    var typewriter = new Typewriter(app, {
-        loop: true
-    });
     
-    typewriter.pauseFor(1500)
-        .typeString('filmmaker.')
-        .pauseFor(1500)
-        .deleteAll()
-        .typeString('web developer.')
-        .pauseFor(1500)
-        .deleteChars(14)
-        .typeString('graphic & UI/UX designer.')
-        .pauseFor(1500)
-        .deleteAll()
-        .typeString('video editor.')
-        .pauseFor(2500)
-        .deleteAll()
-        .start();
-    
+class TypeWriter {
+  constructor(txtElement, words, wait = 3000) {
+    this.txtElement = txtElement;
+    this.words = words;
+    this.txt = '';
+    this.wordIndex = 0;
+    this.wait = parseInt(wait, 10);
+    this.type();
+    this.isDeleting = false;
+  }
+
+  //TYPEWRITER
+
+  type() {
+    // Current index of word
+    const current = this.wordIndex % this.words.length;
+    // Get full text of current word
+    const fullTxt = this.words[current];
+
+    // Check if deleting
+    if(this.isDeleting) {
+      // Remove char
+      this.txt = fullTxt.substring(0, this.txt.length - 1);
+    } else {
+      // Add char
+      this.txt = fullTxt.substring(0, this.txt.length + 1);
+    }
+
+    // Insert txt into element
+    this.txtElement.innerHTML = `<span class="txt">${this.txt}</span>`;
+
+    // Initial Type Speed
+    let typeSpeed = 100;
+
+    if(this.isDeleting) {
+      typeSpeed /= 2;
+    }
+
+    // If word is complete
+    if(!this.isDeleting && this.txt === fullTxt) {
+      // Make pause at end
+      typeSpeed = this.wait;
+      // Set delete to true
+      this.isDeleting = true;
+    } else if(this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      // Move to next word
+      this.wordIndex++;
+      // Pause before start typing
+      typeSpeed = 500;
+    }
+
+    setTimeout(() => this.type(), typeSpeed);
+  }
+}
+
+
+// Init On DOM Load
+document.addEventListener('DOMContentLoaded', init);
+
+// Init App
+function init() {
+  const txtElement = document.querySelector('.txt-type');
+  const words = JSON.parse(txtElement.getAttribute('data-words'));
+  const wait = txtElement.getAttribute('data-wait');
+  // Init TypeWriter
+  new TypeWriter(txtElement, words, wait);
+}
+
     
     /* pretty print
      * -------------------------------------------------- */
