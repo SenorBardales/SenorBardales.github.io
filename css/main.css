@@ -1494,7 +1494,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 .s-header.sticky .header-logo a {
-    margin: 0;
+    margin-top: 8px;
 }
 
 .s-header.sticky .header-nav-wrap {
@@ -1531,8 +1531,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     outline: 0;
     border: none;
     width: 80px;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 
 
@@ -4141,3 +4141,4 @@ article.blog-single .blog-content {
         display: none;
     }
 }
+
